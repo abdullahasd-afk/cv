@@ -1,4 +1,9 @@
-/* Basic styling */
+/* 
+* Professional CV Stylesheet
+* Modern, responsive design with smooth animations
+*/
+
+/* ===== BASE STYLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +17,7 @@ body {
     line-height: 1.6;
 }
 
-/* Basic animations */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -20,7 +25,7 @@ body {
 
 @keyframes slideInFromTop {
     from { 
-        transform: translateY(-30px);
+        transform: translateY(-20px);
         opacity: 0;
     }
     to { 
@@ -31,7 +36,7 @@ body {
 
 @keyframes slideInFromRight {
     from { 
-        transform: translateX(30px);
+        transform: translateX(20px);
         opacity: 0;
     }
     to { 
@@ -42,7 +47,7 @@ body {
 
 @keyframes scale {
     from { 
-        transform: scale(0.8);
+        transform: scale(0.9);
         opacity: 0;
     }
     to { 
@@ -51,46 +56,9 @@ body {
     }
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-}
-
 @keyframes expandBorder {
     from { width: 0; }
     to { width: 100%; }
-}
-
-@keyframes growLine {
-    from { height: 0; }
-    to { height: calc(100% - 20px); }
-}
-
-@keyframes popIn {
-    from { transform: scale(0); }
-    50% { transform: scale(1.2); }
-    to { transform: scale(1); }
-}
-
-@keyframes floatUp {
-    from { 
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to { 
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 @keyframes typing-blink {
@@ -103,18 +71,19 @@ body {
     to { width: var(--percent); }
 }
 
-/* Container */
+/* ===== CONTAINER ===== */
 .container {
     max-width: 900px;
     margin: 40px auto;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn 0.8s ease-out;
+    will-change: transform;
 }
 
-/* Welcome Banner */
+/* ===== WELCOME BANNER ===== */
 .welcome-banner {
     background: linear-gradient(135deg, #1a4f8a, #0b3661);
     color: white;
@@ -124,21 +93,10 @@ body {
     overflow: hidden;
 }
 
-.welcome-banner::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    animation: pulse 15s linear infinite;
-}
-
 .welcome-text {
     font-size: 1.8rem;
     font-weight: 600;
-    animation: slideInFromTop 1s ease-out;
+    animation: slideInFromTop 0.8s ease-out;
     letter-spacing: 1px;
     position: relative;
 }
@@ -147,7 +105,7 @@ body {
     font-size: 1rem;
     opacity: 0.9;
     margin-top: 5px;
-    animation: fadeIn 1.5s ease-out;
+    animation: fadeIn 1s ease-out;
     letter-spacing: 0.5px;
     position: relative;
 }
@@ -175,12 +133,12 @@ body {
     border-radius: 5px;
     font-weight: 500;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     animation: typing-blink 0.7s step-end infinite;
 }
 
-/* Header */
+/* ===== HEADER ===== */
 .header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
@@ -200,7 +158,7 @@ body {
     border: 6px solid rgba(255, 255, 255, 0.3);
     object-fit: cover;
     margin-bottom: 25px;
-    animation: scale 1.5s ease-out;
+    animation: scale 1s ease-out;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -253,18 +211,20 @@ body {
     color: #61dafb;
 }
 
-/* Content */
+/* ===== CONTENT ===== */
 .content {
     padding: 40px;
 }
 
+/* ===== SECTIONS ===== */
 .section {
     margin-bottom: 40px;
     background-color: #ffffff;
     border-radius: 8px;
     padding: 25px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
 }
 
 .section:hover {
@@ -292,11 +252,11 @@ body {
     width: 0;
     height: 2px;
     background-color: #61dafb;
-    animation: expandBorder 1.5s ease-out forwards;
+    animation: expandBorder 1.2s ease-out forwards;
     animation-delay: 0.5s;
 }
 
-/* Summary */
+/* ===== SUMMARY ===== */
 .summary {
     text-align: justify;
     margin-bottom: 30px;
@@ -305,7 +265,7 @@ body {
     font-size: 1.05rem;
 }
 
-/* Experience and Education */
+/* ===== TIMELINE ITEMS ===== */
 .timeline-item {
     margin-bottom: 30px;
     position: relative;
@@ -315,6 +275,7 @@ body {
     animation-fill-mode: both;
     border-left: 1px solid rgba(30, 60, 114, 0.1);
     padding-bottom: 15px;
+    will-change: transform;
 }
 
 .timeline-item:hover {
@@ -332,33 +293,6 @@ body {
 
 .timeline-item:nth-child(3) {
     animation-delay: 0.6s;
-}
-
-.timeline-item:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    right: 0;
-    height: 0;
-    width: 2px;
-    background-color: #1e3c72;
-    animation: growLine 1.5s ease-out forwards;
-    animation-delay: 0.5s;
-}
-
-.timeline-item:after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    right: -5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #61dafb;
-    transform: scale(0);
-    animation: popIn 0.4s ease-out forwards;
-    animation-delay: 0.5s;
-    box-shadow: 0 0 10px rgba(97, 218, 251, 0.5);
 }
 
 .timeline-date {
@@ -405,7 +339,7 @@ body {
     margin-left: -1em;
 }
 
-/* Skills */
+/* ===== SKILLS ===== */
 .skills {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -470,8 +404,9 @@ body {
     width: 0;
     background: linear-gradient(90deg, #61dafb, #1e3c72);
     border-radius: 4px;
-    animation: growBar 1.5s ease-out forwards;
+    animation: growBar 1.2s ease-out forwards;
     animation-delay: 0.8s;
+    will-change: width;
 }
 
 .skill-item:nth-child(1) .skill-percent {
@@ -486,7 +421,7 @@ body {
     animation-delay: 1.2s;
 }
 
-/* Courses */
+/* ===== COURSES ===== */
 .courses-section {
     margin-bottom: 40px;
 }
@@ -502,10 +437,11 @@ body {
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    will-change: transform;
 }
 
 .course-item:hover {
@@ -575,7 +511,7 @@ body {
     width: fit-content;
 }
 
-/* Projects */
+/* ===== PROJECTS ===== */
 .projects-section {
     margin-bottom: 40px;
 }
@@ -590,14 +526,15 @@ body {
     background-color: #fff;
     border-radius: 8px;
     padding: 25px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     border-top: 4px solid #1e3c72;
+    will-change: transform;
 }
 
 .project-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project-header {
@@ -646,7 +583,7 @@ body {
     width: fit-content;
 }
 
-/* Languages */
+/* ===== LANGUAGES ===== */
 .languages {
     display: flex;
     gap: 15px;
@@ -659,7 +596,7 @@ body {
     border-radius: 8px;
     animation: fadeIn 0.5s ease-out forwards;
     opacity: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     border-left: 3px solid #61dafb;
     transition: all 0.3s ease;
     font-weight: 500;
@@ -667,7 +604,7 @@ body {
 
 .language-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: rgba(97, 218, 251, 0.08);
 }
 
@@ -683,7 +620,7 @@ body {
     animation-delay: 0.5s;
 }
 
-/* Interests */
+/* ===== INTERESTS ===== */
 .interests {
     display: flex;
     gap: 12px;
@@ -697,7 +634,7 @@ body {
     border-radius: 30px;
     transform: translateY(20px);
     opacity: 0;
-    animation: floatUp 0.5s ease-out forwards;
+    animation: fadeIn 0.5s ease-out forwards;
     font-weight: 500;
     transition: all 0.3s ease;
     border: 1px solid rgba(97, 218, 251, 0.2);
@@ -729,7 +666,7 @@ body {
     animation-delay: 0.5s;
 }
 
-/* Animation for text typing effect */
+/* ===== TEXT ANIMATIONS ===== */
 .animate-text {
     white-space: nowrap;
     overflow: hidden;
@@ -740,7 +677,6 @@ body {
     animation: typing-blink 0.7s step-end infinite;
 }
 
-/* Animation trigger on viewport entry */
 .is-typing {
     width: 100%;
     opacity: 1;
@@ -749,13 +685,12 @@ body {
     animation: none;
 }
 
-/* Exclude animation for name and title */
 .no-animation {
     animation: none !important;
     border-right: none !important;
 }
 
-/* Mobile improvements */
+/* ===== RESPONSIVE STYLES ===== */
 @media (max-width: 768px) {
     .header {
         padding: 30px 20px;
